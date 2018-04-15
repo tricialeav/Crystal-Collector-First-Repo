@@ -23,9 +23,11 @@ https://www.youtube.com/watch?v=N73EWquTGSY
 Unity3d.com - Unity tutorials, documentation
 
 # Unity3D Asset Store Packages Used
-Nature Starter Kit 2: https://assetstore.unity.com/packages/3d/environments/nature-starter-kit-2-52977
+Nature Starter Kit 2: 
+https://assetstore.unity.com/packages/3d/environments/nature-starter-kit-2-52977
 
-Small Red Dragon: https://assetstore.unity.com/packages/3d/characters/small-red-dragon-52959
+Small Red Dragon: 
+https://assetstore.unity.com/packages/3d/characters/small-red-dragon-52959
 
 Stones:
 https://assetstore.unity.com/packages/3d/props/exterior/3d-scanned-rocks-1-62937
@@ -36,3 +38,8 @@ https://assetstore.unity.com/packages/3d/props/exterior/traditional-water-well-4
 Treasure Chest:
 https://assetstore.unity.com/packages/3d/props/interior/treasure-set-free-chest-72345
 
+Crystals: 
+https://assetstore.unity.com/
+
+Audio: 
+https://assetstore.unity.com/packages/audio/music/orchestral/fantasy-music-lite-72931
