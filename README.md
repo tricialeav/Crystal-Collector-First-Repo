@@ -2,7 +2,7 @@
 
 This repo contains scripts for a simple 3D game built on the Unity Engine, as well as the corresponding full stack site. The game was built for educational purposes, and is not currently available to the public. You can view the game development and gameplay videos on my YouTube channel at: https://www.youtube.com/channel/UCOUWftwp6BCMe9qBg_aethg 
 
-![Videogame Screenshot](screenshot1.png?raw=true "Game Screenshot")
+![Videogame Screenshot](./client/src/screenshot1.png?raw=true "Game Screenshot")
 
 
 # Author
