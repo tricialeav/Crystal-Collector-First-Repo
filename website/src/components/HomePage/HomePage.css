@@ -71,12 +71,14 @@
 .nav-link
 {
     font-family: 'IM Fell English SC', serif;
+    text-align: center; 
 }
 
 .card-subtitle, 
 .card-text {
     font-family: 'Didact Gothic', sans-serif;
     font-size: 1.25rem;
+    text-align: center; 
 }
 
 

@@ -8,11 +8,11 @@ public class GetCrystal : MonoBehaviour {
 	public static float newScore; 
 
 
-	void OnCollisionEnter (Collision col)
+	void OnCollisionEnter(Collision col)
 	{ 
+		Debug.Log ("Collided with crystal");
 		Destroy(this.gameObject); 
 		newScore = CalculateScore.score - 1;
-		Debug.Log (newScore);
 		CalculateScore.score = newScore; 
 	}
 }
