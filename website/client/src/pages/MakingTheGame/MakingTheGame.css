@@ -3,11 +3,11 @@ body {
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
-#card5, 
-#card6, 
-#card7, 
+.colorOnly,
+.colorNHover,
 list {
     background: rgba(0, 75, 133, 0.652); 
     color: white; 
@@ -15,12 +15,18 @@ list {
 }
 
 #card5 {
-    margin: 150px 0;
+    margin: 40px 0;
 }
 
-.btn{
-    display: block;
-   margin: 0 auto; 
+.logo {
+    max-width: 100%;
+    margin: 10px 0; 
+}
+
+iframe {
+    display: block; 
+    margin: 0 auto; 
+    height: 200px;
 }
 
 @media all and (max-width: 1000px) {

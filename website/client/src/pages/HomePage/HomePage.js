@@ -7,21 +7,6 @@ import photo2 from "./screenshot2.png"
 
 class HomePage extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-            dropdownOpen: false
-        };
-    }
-
-    toggle() {
-        this.setState({
-            dropdownOpen: !this.state.dropdownOpen
-        });
-    }
-
     render() {
         return (
             <Container>
@@ -30,27 +15,6 @@ class HomePage extends Component {
                         <iframe src="https://www.youtube.com/embed/XIrgNRtObyY?autoplay=1&amp;controls=0&amp;loop=1&amp;playlist=XIrgNRtObyY" frameborder="0" allowfullscreen title="background-movie"></iframe>
                     </div>
                 </div>
-                <Row id="nav">
-                    <Col>
-                        <Nav>
-                            <NavItem>
-                                <NavLink href="/">Home</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="/MakingTheGame">Making the Game</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="/HowToPlay">How to Play</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="/MediaGallery">Media Gallery</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="/Contact">Contact</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Col>
-                </Row>
                 <Row>
                     <Col>
                         <Card id="card">
