@@ -11,7 +11,7 @@ Tricia Leavitt
 
 # Acknowledgements
 
-Treehouse.com - Unity and C# Video Tutorials
+Teamtreehouse.com - Unity and C# Video Tutorials
 
 Jayanam YouTube - Camera Controllers:
 https://www.youtube.com/watch?v=urNrY7FgMao
@@ -43,3 +43,6 @@ https://assetstore.unity.com/
 
 Audio: 
 https://assetstore.unity.com/packages/audio/music/orchestral/fantasy-music-lite-72931
+
+Stone Monster: 
+https://assetstore.unity.com/packages/3d/characters/stone-monster-101433
