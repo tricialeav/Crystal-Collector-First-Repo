@@ -1,6 +1,6 @@
 # Video-Game
 
-This repo contains scripts for a simple 3D game built on the Unity Engine, as well as the corresponding full stack site. The game was built for educational purposes, and is not currently available to the public. You can view the game development and gameplay videos on my YouTube channel at: https://www.youtube.com/channel/UCOUWftwp6BCMe9qBg_aethg 
+This repo contains scripts for a full-stack site that corresponds to a simple Unity 3d game, the files for which can be found at https://github.com/tricialeav/Crystal-Collector-Game-Files. The game was built for educational purposes, and is not currently available to the public. You can view the game development and gameplay videos on my YouTube channel at: https://www.youtube.com/channel/UCOUWftwp6BCMe9qBg_aethg 
 
 ![Videogame Screenshot](./website/client/src/screenshot1.png?raw=true "Game Screenshot")
 
