@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./HomePage.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import { Container, Row, Col, Nav, NavLink, NavItem, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText } from 'reactstrap';
-import photo1 from "./screenshot1.png"
-import photo2 from "./screenshot2.png"
+import { Container, Row, Col, Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
+import photo1 from "./HomePageImg/screenshot1.png"
+import photo2 from "./HomePageImg/screenshot2.png"
+import photo4 from "./HomePageImg/screenshot4.png"
 
 class HomePage extends Component {
 
@@ -17,34 +18,22 @@ class HomePage extends Component {
                 </div>
                 <Row>
                     <Col>
-                        <Card id="card">
+                        <Card className="colorOnly topCard">
                             <CardBody>
                                 <CardTitle id="mainHeader">Crystal Collector</CardTitle>
-
                                 <CardText>Crystal Collector is a desktop game that was developed for private use as part of a final project for the University of California, Irvine Web Development Bootcamp Spring 2018 by Tricia Leavitt.</CardText>
                             </CardBody>
                         </Card>
                     </Col>
                 </Row>
                 <Row>
-                    <Col sm="12" lg="6">
+                    <Col>
                         <a href="/MakingTheGame">
-                            <Card id="card1">
+                            <Card className="colorNHover">
                                 <CardImg top width="100%" src={photo1} alt="Game Screenshot 1" />
                                 <CardBody>
                                     <CardTitle>Making the Game</CardTitle>
-                                    <CardText>Click here for information about how the game was made, the inspiration for the game, and links to resources.</CardText>
-                                </CardBody>
-                            </Card>
-                        </a>
-                    </Col>
-                    <Col sm="12" lg="6">
-                        <a href="HowToPlay">
-                            <Card id="card2">
-                                <CardImg top width="100%" src={photo2} alt="Game Screenshot 1" />
-                                <CardBody>
-                                    <CardTitle>How to Play</CardTitle>
-                                    <CardText>Interested in finding out more about how the game works and where to play?</CardText>
+                                    <CardText>Find out how the game was made and get links to resources.</CardText>
                                 </CardBody>
                             </Card>
                         </a>
@@ -53,8 +42,8 @@ class HomePage extends Component {
                 <Row>
                     <Col sm="12" lg="6">
                         <a href="MediaGallery">
-                            <Card id="card3">
-                                <CardImg top width="100%" src={photo1} alt="Game Screenshot 1" />
+                            <Card className="colorNHover">
+                                <CardImg top width="100%" src={photo2} alt="Dragon Flying" />
                                 <CardBody>
                                     <CardTitle>Media Gallery</CardTitle>
                                     <CardText>Visit the media gallery to see content photos and video, as well as behind-the-scenes clips.</CardText>
@@ -64,8 +53,8 @@ class HomePage extends Component {
                     </Col>
                     <Col sm="12" lg="6">
                         <a href="Contact">
-                            <Card id="card4">
-                                <CardImg top width="100%" src={photo2} alt="Game Screenshot 1" />
+                            <Card className="colorNHover">
+                                <CardImg top width="100%" src={photo4} alt="Enemy Ahead" />
                                 <CardBody>
                                     <CardTitle>Contact</CardTitle>
                                     <CardText>Have comments, questions, or suggestions? Visit the Contact section to let me know!</CardText>

@@ -1,8 +1,8 @@
 body {
-    background-image: url("screenshot3ps.png");
+    background-image: url("./MakingTheGameImg/screenshot3ps.png");
     background-attachment: scroll;
+    background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
 }
 
@@ -14,19 +14,17 @@ list {
     box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
 }
 
-#card5 {
-    margin: 40px 0;
-}
-
 .logo {
     max-width: 100%;
-    margin: 10px 0; 
+    display: block;
+    margin: 10px auto; 
 }
 
-iframe {
+.resourceVids {
     display: block; 
     margin: 0 auto; 
-    height: 200px;
+    max-height: 100%;
+    max-width: 100%
 }
 
 @media all and (max-width: 1000px) {
