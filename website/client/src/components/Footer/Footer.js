@@ -8,7 +8,7 @@ class Footer extends Component {
     render() {
         return (
                 <Row>
-                    <Card body className="nav">
+                    <Card body className="nav" id="footer">
                         <CardText>
                             <a href="mailto:tricialeavittdevelopment@gmail.com?subject=Crystal%20Collector%20Inquiry" className="fa fa-envelope fa-2x icon" id="envelope" aria-hidden="true" target="_blank"></a>
                             <a href="https://github.com/tricialeav" class="fa fa-github fa-2x icon" id="github" aria-hidden="true" target="_blank"></a>

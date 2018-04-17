@@ -29,7 +29,7 @@ class MakingTheGame extends Component {
         return (
             <Container>
                 <Col>
-                    <Card className="colorOnly topCard">
+                    <Card className="colorOnly">
                         <CardBody>
                             <CardTitle id="mainHeader">The Idea</CardTitle>
                             <CardText>As my final project for the University of California, Irvine Web Development Bootcamp Spring 2018, I wanted to fully embrace the idea that learning new concepts and stepping outside of my comfort zone are now a consistent part of my life and career. For this reason, I chose develop a project in which I would need to utilize an entirely new skill set, in addition to those that I developed during the course of the program. Having always been a fan of video games, I was excited by the challenge that creating my own would provide.

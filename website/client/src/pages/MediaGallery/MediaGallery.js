@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./MediaGallery.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import { Container, Col, Row, Card, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Container, Col, Row, Card, CardBody, CardTitle } from 'reactstrap';
 
 class MediaGallery extends Component {
 
@@ -9,7 +9,7 @@ class MediaGallery extends Component {
         return (
             <Container>
                  <Col>
-                    <Card className="colorOnly topCard">
+                    <Card className="colorOnly">
                         <CardBody>
                             <CardTitle id="mainHeader">Behind-the-Scenes Videos</CardTitle>
                         </CardBody>
