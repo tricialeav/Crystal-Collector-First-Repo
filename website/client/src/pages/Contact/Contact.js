@@ -13,43 +13,61 @@ class Contact extends Component {
             name: "",
             email: "",
             comment: "",
-            mailingList: false
+            active: false
         };
     }
 
     toggle() {
-        this.setState( {
+        this.setState({
             visible: !this.state.visible
         })
+    }
+
+    toggleMail() {
+        this.setState({
+        active: !this.state.active
+    })
+    }
+
+    onClick() {
+        if(this.state.active === false) {
+            this.setState({ active: true});
+        } else {
+            this.setState({ active: false});
+        };
     }
 
     onSubmit() {
         this.setState({ visible: true });
         let options = {
-           method: 'POST',
-           headers: {
-               'Accept': 'application/json',
-               'Content-type': 'application/json'
-           },
-           body: JSON.stringify({
-               name: this.state.name,
-               email: this.state.email,
-               comment: this.state.comment,
-               date: Date.now()
-           })
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: this.state.name,
+                email: this.state.email,
+                comment: this.state.comment,
+                mailingList: this.state.mailingList,
+                date: Date.now()
+            })
         }
 
         fetch('url', options).then(response => {
-            console.log('Success posting! '+response.body);
+            console.log('Success posting! ' + response.body);
         }).catch(err => {
-            console.error('Error posting comment: '+err);
+            console.error('Error posting comment: ' + err);
         })
 
     }
 
-    handleNameChange = e => {
+    handleNameChange = evt => {
         this.setState({
-            name: e.target.value
+            name: evt.target.value,
+            email: evt.target.value,
+            comment: evt.target.value,
+            mailingList: evt.target.value
         })
     }
 
@@ -57,7 +75,7 @@ class Contact extends Component {
         return (
             <Container>
                 <Alert isOpen={this.state.visible} toggle={this.toggle.bind(this)} id="formAlert">
-                    I am an alert and I can be dismissed!
+                    Your comment has been submitted!
                 </Alert>
                 <Card className="colorOnly">
                     <CardBody>
@@ -66,41 +84,43 @@ class Contact extends Component {
                 </Card>
                 <Row>
                     <Col id="form" md="12" lg="6">
-                    <Card className="colorOnly">
-                        <Form>
-                        <CardTitle>Submit a Comment</CardTitle>
-                        <FormGroup>
-                                <Label for="exampleName">Name</Label>
-                                <Input type="name" name="name" id="exampleName" placeholder="Jane Doe" onChange={this.handleNameChange.bind(this)}/>
-                            </FormGroup>
-                        <FormGroup>
-                                <Label for="exampleEmail">Email</Label>
-                                <Input type="email" name="email" id="exampleEmail" placeholder="email@email.com" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="exampleText">Text Area</Label>
-                                <Input type="textarea" name="text" id="exampleText" />
-                            </FormGroup>
-                            <FormGroup check id="mailingListOptIn">
-                                <Label check>
-                                    <Input type="checkbox" />
-                                    Join the mailing list
+                        <Card className="colorOnly">
+                            <Form>
+                                <CardTitle>Submit a Comment</CardTitle>
+                                <FormGroup>
+                                    <Label for="exampleName">Name</Label>
+                                    <Input type="name" name="name" id="exampleName" placeholder="Jane Doe" onChange={this.handleNameChange.bind(this)} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="exampleEmail">Email</Label>
+                                    <Input type="email" name="email" id="exampleEmail" placeholder="email@email.com" onChange={this.handleNameChange.bind(this)} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="exampleText">Text Area</Label>
+                                    <Input type="textarea" name="comment" id="exampleText" onChange={this.handleNameChange.bind(this)} />
+                                </FormGroup>
+                                <FormGroup check id="mailingListOptIn">
+                                    <Label check>
+                                        <Input type="checkbox"
+                                            toggleMail={this.state.active}
+                                            onClick={this.onClick.bind(this)} />
+                                        Join the mailing list
                                 </Label>
-                            </FormGroup>
-                            <Button onClick={this.onSubmit.bind(this)} id="submitButton">Submit</Button>
-                        </Form>
+                                </FormGroup>
+                                <Button onClick={this.onSubmit.bind(this)} id="submitButton">Submit</Button>
+                            </Form>
                         </Card>
                     </Col>
                     <Col id="returnComments" md="12" lg="6">
-                    <Card className="colorOnly">
-                        <ListGroup>
-                        <CardTitle>Recent Comments</CardTitle>
-                            <ListGroupItem>Cras justo odio</ListGroupItem>
-                            <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                            <ListGroupItem>Morbi leo risus</ListGroupItem>
-                            <ListGroupItem>Porta ac consectetur ac</ListGroupItem>
-                            <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                        </ListGroup>
+                        <Card className="colorOnly">
+                            <ListGroup>
+                                <CardTitle>Recent Comments</CardTitle>
+                                <ListGroupItem>Cras justo odio</ListGroupItem>
+                                <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
+                                <ListGroupItem>Morbi leo risus</ListGroupItem>
+                                <ListGroupItem>Porta ac consectetur ac</ListGroupItem>
+                                <ListGroupItem>Vestibulum at eros</ListGroupItem>
+                            </ListGroup>
                         </Card>
                     </Col>
                 </Row>
