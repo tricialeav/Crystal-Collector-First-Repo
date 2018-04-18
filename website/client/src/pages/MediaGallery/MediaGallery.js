@@ -69,6 +69,16 @@ class MediaGallery extends Component {
                 </Card>
                 </Col>
                 </Row>
+                <Row>
+                <Col md="12" lg="6">
+                <Card className="colorOnly">
+                    <CardBody>
+                        <CardTitle>Score/Health Updater, Enemy NPCs</CardTitle>
+                        <iframe src="https://www.youtube.com/embed/ZTrp0TLKT6M" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen title="Health Score Enemies" className="mediaVids"></iframe>
+                    </CardBody>
+                </Card>
+                </Col>
+                </Row>
                 <Col>
                 <Card className="colorOnly">
                     <CardBody>

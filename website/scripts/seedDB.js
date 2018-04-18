@@ -1,15 +1,16 @@
 const mongoose = require("mongoose");
 const db = require("../models");
-mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise; 
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/comments",
   {
     useMongoClient: true
-  }
+  },
+  console.log('CONNECTING TO DB')
 );
 
-const comments = [
+const commentsSeed = [
   {
     name: "Example",
     email: "example@example.com",
@@ -19,11 +20,16 @@ const comments = [
   }
 ];
 
-db.Comment
-  // .remove({})
-  .then(() => db.Comment.comments.insertOne(comments))
-  .then(data => {
-    console.log(data.insertedIds.length + " records inserted!");
+
+db.Comments
+  .remove({})
+  .then(() => 
+    db.Comments.collection.insert(commentsSeed)
+  )
+  .then(docs => {
+    console.log(JSON.stringify(docs));
+    console.log(JSON.stringify(docs.insertedIds) + " record inserted!");
+
     process.exit(0);
   })
   .catch(err => {
