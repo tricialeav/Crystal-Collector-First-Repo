@@ -16,6 +16,7 @@ const commentsSeed = [
     email: "example@example.com",
     comment:
       "This is a text comment",
+    mailingList: false,
     date: new Date(Date.now())
   }
 ];

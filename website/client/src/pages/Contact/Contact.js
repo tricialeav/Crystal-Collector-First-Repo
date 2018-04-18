@@ -9,25 +9,59 @@ class Contact extends Component {
         super(props);
 
         this.state = {
-            visible: true
+            visible: false,
+            name: "",
+            email: "",
+            comment: "",
+            mailingList: false
         };
-
-        this.onDismiss = this.onDismiss.bind(this);
     }
 
-    onDismiss() {
-        this.setState({ visible: false });
+    toggle() {
+        this.setState( {
+            visible: !this.state.visible
+        })
+    }
+
+    onSubmit() {
+        this.setState({ visible: true });
+        let options = {
+           method: 'POST',
+           headers: {
+               'Accept': 'application/json',
+               'Content-type': 'application/json'
+           },
+           body: JSON.stringify({
+               name: this.state.name,
+               email: this.state.email,
+               comment: this.state.comment,
+               date: Date.now()
+           })
+        }
+
+        fetch('url', options).then(response => {
+            console.log('Success posting! '+response.body);
+        }).catch(err => {
+            console.error('Error posting comment: '+err);
+        })
+
+    }
+
+    handleNameChange = e => {
+        this.setState({
+            name: e.target.value
+        })
     }
 
     render() {
         return (
             <Container>
-                <Alert isOpen={this.state.visible} toggle={this.onDismiss} id="formAlert">
+                <Alert isOpen={this.state.visible} toggle={this.toggle.bind(this)} id="formAlert">
                     I am an alert and I can be dismissed!
                 </Alert>
                 <Card className="colorOnly">
                     <CardBody>
-                        <CardTitle id="mainHeader">Contact</CardTitle>
+                        <CardTitle id="mainHeader">Forum</CardTitle>
                     </CardBody>
                 </Card>
                 <Row>
@@ -37,23 +71,23 @@ class Contact extends Component {
                         <CardTitle>Submit a Comment</CardTitle>
                         <FormGroup>
                                 <Label for="exampleName">Name</Label>
-                                <Input type="name" name="name" id="exampleName" placeholder="with a placeholder" />
+                                <Input type="name" name="name" id="exampleName" placeholder="Jane Doe" onChange={this.handleNameChange.bind(this)}/>
                             </FormGroup>
                         <FormGroup>
                                 <Label for="exampleEmail">Email</Label>
-                                <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                                <Input type="email" name="email" id="exampleEmail" placeholder="email@email.com" />
                             </FormGroup>
                             <FormGroup>
                                 <Label for="exampleText">Text Area</Label>
                                 <Input type="textarea" name="text" id="exampleText" />
                             </FormGroup>
-                            <FormGroup check>
+                            <FormGroup check id="mailingListOptIn">
                                 <Label check>
-                                    <Input type="checkbox" />{' '}
+                                    <Input type="checkbox" />
                                     Join the mailing list
                                 </Label>
                             </FormGroup>
-                            <Button>Submit</Button>
+                            <Button onClick={this.onSubmit.bind(this)} id="submitButton">Submit</Button>
                         </Form>
                         </Card>
                     </Col>
