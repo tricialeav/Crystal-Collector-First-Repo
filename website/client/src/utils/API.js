@@ -2,19 +2,19 @@ import axios from "axios";
 
 export default {
 
-  getComments: function() {
+  getComment: function() {
     return axios.get("/api/comments");
   },
 
-  getComment: function(id) {
+  getOneComment: function(id) {
     return axios.get("/api/comments/" + id);
   },
 
   deleteComment: function(id) {
     return axios.delete("/api/comments/" + id);
   },
-  // Saves a book to the database
-  saveComments: function(comment) {
+
+  saveComment: function(comment) {
     return axios.post("/api/comments", comment);
   }
 };

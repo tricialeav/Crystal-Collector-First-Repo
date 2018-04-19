@@ -56,8 +56,8 @@ class HomePage extends Component {
                             <Card className="colorNHover">
                                 <CardImg top width="100%" src={photo4} alt="Enemy Ahead" />
                                 <CardBody>
-                                    <CardTitle>Contact</CardTitle>
-                                    <CardText>Have comments, questions, or suggestions? Visit the Contact section to let me know!</CardText>
+                                    <CardTitle>Forum</CardTitle>
+                                    <CardText>Have comments, questions, or suggestions? Visit the Forum!</CardText>
                                 </CardBody>
                             </Card>
                         </a>

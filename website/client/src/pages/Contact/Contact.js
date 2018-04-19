@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Contact.css";
 import 'bootstrap/dist/css/bootstrap.css';
+import API from "../../utils/API";
 import { Container, Row, Col, Alert, Card, CardBody, CardTitle, Button, Form, FormGroup, Label, Input, ListGroup, ListGroupItem } from 'reactstrap';
 
 class Contact extends Component {
@@ -13,9 +14,17 @@ class Contact extends Component {
             name: "",
             email: "",
             comment: "",
-            active: false
+            mailingList: false
         };
     }
+
+    loadComments = () => {
+        API.getComment()
+          .then(res =>
+            console.log(res)
+          )
+          .catch(err => console.log(err));
+      };
 
     toggle() {
         this.setState({
@@ -23,51 +32,51 @@ class Contact extends Component {
         })
     }
 
-    toggleMail() {
+    togglemail() {
         this.setState({
         active: !this.state.active
     })
     }
 
-    onClick() {
-        if(this.state.active === false) {
-            this.setState({ active: true});
+    onMailingListChanged() {
+        if(this.state.mailingList === false) {
+            this.setState({ mailingList: true});
         } else {
-            this.setState({ active: false});
+            this.setState({ mailingList: false});
         };
     }
 
-    onSubmit() {
+    onSubmit(evt) {
+        evt.preventDefault(); 
         this.setState({ visible: true });
-        let options = {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: this.state.name,
-                email: this.state.email,
-                comment: this.state.comment,
-                mailingList: this.state.mailingList,
-                date: Date.now()
-            })
+        API.saveComment({
+            name: this.state.name,
+            email: this.state.email,
+            comment: this.state.comment, 
+            mailingList: this.state.mailingList,
+            date: Date.now()
+          })
+          .then(res => console.log(res))
+            .then(res => this.loadComments())
+            .catch(err => console.log(err));
         }
 
-        fetch('url', options).then(response => {
-            console.log('Success posting! ' + response.body);
-        }).catch(err => {
-            console.error('Error posting comment: ' + err);
-        })
-
-    }
 
     handleNameChange = evt => {
         this.setState({
-            name: evt.target.value,
-            email: evt.target.value,
-            comment: evt.target.value,
-            mailingList: evt.target.value
+            name: evt.target.value
+        })
+    }
+
+    handleEmailChange = evt => {
+        this.setState({
+            email: evt.target.value
+        })
+    }
+
+    handleCommentChange = evt => {
+        this.setState({
+            comment: evt.target.value
         })
     }
 
@@ -89,21 +98,25 @@ class Contact extends Component {
                                 <CardTitle>Submit a Comment</CardTitle>
                                 <FormGroup>
                                     <Label for="exampleName">Name</Label>
-                                    <Input type="name" name="name" id="exampleName" placeholder="Jane Doe" onChange={this.handleNameChange.bind(this)} />
+                                    <Input type="name" name="name" id="exampleName" placeholder="Jane Doe" 
+                                    value = {this.state.name}
+                                    onChange={this.handleNameChange.bind(this)} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleEmail">Email</Label>
-                                    <Input type="email" name="email" id="exampleEmail" placeholder="email@email.com" onChange={this.handleNameChange.bind(this)} />
+                                    <Input type="email" name="email" id="exampleEmail" placeholder="email@email.com" value = {this.state.email}
+                                    onChange={this.handleEmailChange.bind(this)} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleText">Text Area</Label>
-                                    <Input type="textarea" name="comment" id="exampleText" onChange={this.handleNameChange.bind(this)} />
+                                    <Input type="textarea" name="comment" id="exampleText" value = {this.state.comment} onChange={this.handleCommentChange.bind(this)} />
                                 </FormGroup>
                                 <FormGroup check id="mailingListOptIn">
                                     <Label check>
                                         <Input type="checkbox"
-                                            toggleMail={this.state.active}
-                                            onClick={this.onClick.bind(this)} />
+                                            togglemail={this.state.active}
+                                            value = {this.state.mailingList}
+                                            onClick={this.onMailingListChanged.bind(this)} />
                                         Join the mailing list
                                 </Label>
                                 </FormGroup>

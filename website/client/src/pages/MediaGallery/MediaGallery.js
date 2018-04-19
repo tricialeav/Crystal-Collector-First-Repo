@@ -78,15 +78,15 @@ class MediaGallery extends Component {
                     </CardBody>
                 </Card>
                 </Col>
-                </Row>
-                <Col>
+                <Col md="12" lg="6">
                 <Card className="colorOnly">
                     <CardBody>
-                        <CardTitle>Gameplay - No Sound</CardTitle>
-                        <iframe src="https://www.youtube.com/embed/XIrgNRtObyY" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen title="Gameplay" className="mediaVidLarge"></iframe>
+                        <CardTitle>Gameplay <br/> No Sound</CardTitle>
+                        <iframe src="https://www.youtube.com/embed/XIrgNRtObyY" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen title="Gameplay" className="mediaVids"></iframe>
                     </CardBody>
                 </Card>
                 </Col>
+                </Row>
             </Container >
         )
     }
