@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const moment = require("moment");
 const Schema = mongoose.Schema;
 
 const commentsSchema = new Schema({
@@ -6,7 +7,7 @@ const commentsSchema = new Schema({
   email: { type: String, required: true },
   comment: { type: String, required: false },
   mailingList: { type: Boolean, default: false },
-  date: { type: Date, default: Date.now }
+  date: {type: String }
 });
 
 const Comments = mongoose.model("Comments", commentsSchema);

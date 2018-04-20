@@ -23,3 +23,7 @@ ul.list-group {
 h3 {
     text-align: center; 
 }
+
+#commentTitle {
+    margin-top: 15px;
+}

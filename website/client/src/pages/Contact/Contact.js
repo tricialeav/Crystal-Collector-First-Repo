@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Contact.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import API from "../../utils/API";
+import moment from 'moment';
 import { Container, Row, Col, Alert, Card, CardBody, CardTitle, Button, Form, FormGroup, Label, Input, ListGroup, ListGroupItem } from 'reactstrap';
 
 class Contact extends Component {
@@ -64,7 +65,7 @@ class Contact extends Component {
             email: this.state.email,
             comment: this.state.comment,
             mailingList: this.state.mailingList,
-            date: Date.now()
+            date: moment().format('MMMM Do YYYY, h:mm:ss a')
         })
             .then(res => console.log(res))
             .then(res => this.loadComments())
@@ -136,14 +137,17 @@ class Contact extends Component {
                     </Col>
                     <Col id="returnComments" md="12" lg="6">
                         <Card className="colorOnly">
-                        <CardTitle>Comments</CardTitle>
+                        <CardTitle id="commentTitle">Recent Comments</CardTitle>
                             {this.state.loadedComments.length ? (
                                 <ListGroup>
                                     {this.state.loadedComments.map(comments => (
                                         <ListGroupItem key={comments._id}>
                                                 <strong>
+                                                {comments.name}
+                                                <br />
+                                                {comments.comment}
+                                                <br/>
                                                 {comments.date}
-                                                <br />{comments.comment}
                                                 </strong>
                                             <Button onClick={() => this.deleteComment(comments._id)} />
                                         </ListGroupItem>
