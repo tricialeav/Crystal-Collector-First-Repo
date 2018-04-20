@@ -14,17 +14,22 @@ class Contact extends Component {
             name: "",
             email: "",
             comment: "",
-            mailingList: false
+            mailingList: false,
+            loadedComments: []
         };
+    }
+
+    componentDidMount() {
+        this.loadComments();
     }
 
     loadComments = () => {
         API.getComment()
-          .then(res =>
-            console.log(res)
-          )
-          .catch(err => console.log(err));
-      };
+            .then(res =>
+                this.setState({ loadedComments: res.data })
+            )
+            .catch(err => console.log(err));
+    };
 
     toggle() {
         this.setState({
@@ -34,32 +39,37 @@ class Contact extends Component {
 
     togglemail() {
         this.setState({
-        active: !this.state.active
-    })
+            active: !this.state.active
+        })
     }
 
     onMailingListChanged() {
-        if(this.state.mailingList === false) {
-            this.setState({ mailingList: true});
+        if (this.state.mailingList === false) {
+            this.setState({ mailingList: true });
         } else {
-            this.setState({ mailingList: false});
+            this.setState({ mailingList: false });
         };
     }
 
     onSubmit(evt) {
-        evt.preventDefault(); 
-        this.setState({ visible: true });
+        evt.preventDefault();
+        this.setState({ 
+            visible: true, 
+            name: "",
+            email: "",
+            comment: "",
+        }); 
         API.saveComment({
             name: this.state.name,
             email: this.state.email,
-            comment: this.state.comment, 
+            comment: this.state.comment,
             mailingList: this.state.mailingList,
             date: Date.now()
-          })
-          .then(res => console.log(res))
+        })
+            .then(res => console.log(res))
             .then(res => this.loadComments())
             .catch(err => console.log(err));
-        }
+    }
 
 
     handleNameChange = evt => {
@@ -98,24 +108,24 @@ class Contact extends Component {
                                 <CardTitle>Submit a Comment</CardTitle>
                                 <FormGroup>
                                     <Label for="exampleName">Name</Label>
-                                    <Input type="name" name="name" id="exampleName" placeholder="Jane Doe" 
-                                    value = {this.state.name}
-                                    onChange={this.handleNameChange.bind(this)} />
+                                    <Input type="name" name="name" id="exampleName" placeholder="Jane Doe"
+                                        value={this.state.name}
+                                        onChange={this.handleNameChange.bind(this)} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleEmail">Email</Label>
-                                    <Input type="email" name="email" id="exampleEmail" placeholder="email@email.com" value = {this.state.email}
-                                    onChange={this.handleEmailChange.bind(this)} />
+                                    <Input type="email" name="email" id="exampleEmail" placeholder="email@email.com" value={this.state.email}
+                                        onChange={this.handleEmailChange.bind(this)} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleText">Text Area</Label>
-                                    <Input type="textarea" name="comment" id="exampleText" value = {this.state.comment} onChange={this.handleCommentChange.bind(this)} />
+                                    <Input type="textarea" name="comment" id="exampleText" value={this.state.comment} onChange={this.handleCommentChange.bind(this)} />
                                 </FormGroup>
                                 <FormGroup check id="mailingListOptIn">
                                     <Label check>
                                         <Input type="checkbox"
                                             togglemail={this.state.active}
-                                            value = {this.state.mailingList}
+                                            value={this.state.mailingList}
                                             onClick={this.onMailingListChanged.bind(this)} />
                                         Join the mailing list
                                 </Label>
@@ -126,14 +136,22 @@ class Contact extends Component {
                     </Col>
                     <Col id="returnComments" md="12" lg="6">
                         <Card className="colorOnly">
-                            <ListGroup>
-                                <CardTitle>Recent Comments</CardTitle>
-                                <ListGroupItem>Cras justo odio</ListGroupItem>
-                                <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                                <ListGroupItem>Morbi leo risus</ListGroupItem>
-                                <ListGroupItem>Porta ac consectetur ac</ListGroupItem>
-                                <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                            </ListGroup>
+                        <CardTitle>Comments</CardTitle>
+                            {this.state.loadedComments.length ? (
+                                <ListGroup>
+                                    {this.state.loadedComments.map(comments => (
+                                        <ListGroupItem key={comments._id}>
+                                                <strong>
+                                                {comments.date}
+                                                <br />{comments.comment}
+                                                </strong>
+                                            <Button onClick={() => this.deleteComment(comments._id)} />
+                                        </ListGroupItem>
+                                    ))}
+                                </ListGroup>
+                            ) : (
+                                    <h3>No Results to Display</h3>
+                                )}
                         </Card>
                     </Col>
                 </Row>
