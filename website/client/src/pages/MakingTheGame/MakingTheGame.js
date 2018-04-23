@@ -42,7 +42,7 @@ class MakingTheGame extends Component {
                     <Col sm="12" md="6">
                         <Card className="colorNHover">
                             <CardBody>
-                                <a href="https://unity3d.com/" target="_blank">
+                                <a href="https://unity3d.com/" target="_blank" rel="noopener noreferrer">
                                     <CardTitle>Unity 3D Game Engine</CardTitle>
                                     <img src={UnityLogo} alt="Unity Logo" className="logo" />
                                     <CardText>
@@ -55,7 +55,7 @@ class MakingTheGame extends Component {
                     <Col sm="12" md="6">
                         <Card className="colorNHover">
                             <CardBody>
-                                <a href="https://teamtreehouse.com/" target="_blank">
+                                <a href="https://teamtreehouse.com/" target="_blank" rel="noopener noreferrer">
                                     <CardTitle>Treehouse</CardTitle>
                                     <img src={TreehouseLogo} alt="Treehouse Logo" className="logo" />
                                     <CardText>"As members of the Treehouse community, students can learn to build websites, create iPhone and Android apps, build web apps with Ruby on Rails and PHP, learn about user experience, how to start a business, and much more. All of which can be learned online in one comprehensive place. Through hundreds of courses comprised of video tutorials, quizzes, and code challenges created by expert teachers, students can learn to code in languages like Objective-C, HTML, CSS, PHP, Ruby, Swift, SQL, Python, Java and more."</CardText></a>
@@ -63,7 +63,7 @@ class MakingTheGame extends Component {
                         </Card>
                         <Card className="colorNHover">
                             <CardBody>
-                                <a href="https://assetstore.unity.com/packages/audio/music/orchestral/fantasy-music-lite-72931" target="_blank">
+                                <a href="https://assetstore.unity.com/packages/audio/music/orchestral/fantasy-music-lite-72931" target="_blank" rel="noopener noreferrer">
                                     <CardTitle>Fantasy Music Lite</CardTitle>
                                     <CardSubtitle>By Vasco Grossmann</CardSubtitle>
                                     <img src={music} alt="Sound Cloud" className="logo" />
@@ -96,7 +96,7 @@ class MakingTheGame extends Component {
                     <Col sm="12">
                         <Card className="colorNHover">
                             <CardBody>
-                                <a href="https://assetstore.unity.com/packages/3d/props/exterior/traditional-water-well-4477" target="_blank">
+                                <a href="https://assetstore.unity.com/packages/3d/props/exterior/traditional-water-well-4477" target="_blank" rel="noopener noreferrer">
                                     <CardTitle>Water Well</CardTitle>
                                     <CardSubtitle>By 3DMondra</CardSubtitle>
                                     <img src={waterWell} alt="Water Well" className="logo" />
@@ -109,7 +109,7 @@ class MakingTheGame extends Component {
                     <Col sm="12" md="6">
                         <Card className="colorNHover">
                             <CardBody>
-                                <a href="https://assetstore.unity.com/packages/3d/props/stylized-crystal-77275" target="_blank">
+                                <a href="https://assetstore.unity.com/packages/3d/props/stylized-crystal-77275" target="_blank" rel="noopener noreferrer">
                                     <CardTitle>Crystals</CardTitle>
                                     <CardSubtitle>By LowlyPoly</CardSubtitle>
                                     <img src={crystals} alt="Crystals" className="logo" />
@@ -120,7 +120,7 @@ class MakingTheGame extends Component {
                     <Col sm="12" md="6">
                         <Card className="colorNHover">
                             <CardBody>
-                                <a href="https://assetstore.unity.com/packages/3d/characters/small-red-dragon-52959" target="_blank">
+                                <a href="https://assetstore.unity.com/packages/3d/characters/small-red-dragon-52959" target="_blank" rel="noopener noreferrer">
                                     <CardTitle>Small Red Dragon</CardTitle>
                                     <CardSubtitle>By StoneSnail</CardSubtitle>
                                     <img src={RedDragon} alt="Game Character" className="logo" />
@@ -133,7 +133,7 @@ class MakingTheGame extends Component {
                     <Col sm="12" md="6">
                         <Card className="colorNHover">
                             <CardBody>
-                                <a href="https://assetstore.unity.com/packages/3d/characters/stone-monster-101433" target="_blank">
+                                <a href="https://assetstore.unity.com/packages/3d/characters/stone-monster-101433" target="_blank" rel="noopener noreferrer">
                                     <CardTitle>Stone Monster</CardTitle>
                                     <CardSubtitle>By Amused Art</CardSubtitle>
                                     <img src={stoneMonster} alt="Stone Monster" className="logo" />
@@ -144,7 +144,7 @@ class MakingTheGame extends Component {
                     <Col sm="12" md="6">
                         <Card className="colorNHover">
                             <CardBody>
-                                <a href="https://assetstore.unity.com/packages/3d/environments/nature-starter-kit-2-52977" target="_blank">
+                                <a href="https://assetstore.unity.com/packages/3d/environments/nature-starter-kit-2-52977" target="_blank" rel="noopener noreferrer">
                                     <CardTitle>Game Landscape</CardTitle>
                                     <CardSubtitle>By Shapes</CardSubtitle>
                                     <img src={landscape} alt="Game Landscape" className="logo" />
@@ -157,7 +157,7 @@ class MakingTheGame extends Component {
                     <Col sm="12" md="6">
                         <Card className="colorNHover">
                             <CardBody>
-                                <a href="https://assetstore.unity.com/packages/3d/props/interior/treasure-set-free-chest-72345" target="_blank">
+                                <a href="https://assetstore.unity.com/packages/3d/props/interior/treasure-set-free-chest-72345" target="_blank" rel="noopener noreferrer">
                                     <CardTitle>Treasure Chest</CardTitle>
                                     <CardSubtitle>By Fairy Shop</CardSubtitle>
                                     <img src={chest} alt="Treasure Chest" className="logo" />
@@ -168,7 +168,7 @@ class MakingTheGame extends Component {
                     <Col sm="12" md="6">
                         <Card className="colorNHover">
                             <CardBody>
-                                <a href="https://assetstore.unity.com/packages/3d/props/exterior/3d-scanned-rocks-1-62937" target="_blank">
+                                <a href="https://assetstore.unity.com/packages/3d/props/exterior/3d-scanned-rocks-1-62937" target="_blank" rel="noopener noreferrer">
                                     <CardTitle>Rocks</CardTitle>
                                     <CardSubtitle>By Jasu</CardSubtitle>
                                     <img src={rocks} alt="Rocks" className="logo" />

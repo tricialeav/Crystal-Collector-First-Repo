@@ -12,6 +12,7 @@ class Contact extends Component {
 
         this.state = {
             visible: false,
+            warning: false,
             name: "",
             email: "",
             comment: "",
@@ -38,6 +39,12 @@ class Contact extends Component {
         })
     }
 
+    toggleWarning() {
+        this.setState ({
+            warning: !this.state.warning
+        })
+    }
+
     togglemail() {
         this.setState({
             active: !this.state.active
@@ -54,11 +61,12 @@ class Contact extends Component {
 
     onSubmit(evt) {
         evt.preventDefault();
-        this.setState({ 
-            visible: true, 
-            name: "",
-            email: "",
-            comment: "",
+        if(this.validate() === true){
+            this.setState({ 
+                visible: true, 
+                name: "",
+                email: "",
+                comment: ""
         }); 
         API.saveComment({
             name: this.state.name,
@@ -70,6 +78,20 @@ class Contact extends Component {
             .then(res => console.log(res))
             .then(res => this.loadComments())
             .catch(err => console.log(err));
+        } else {
+            this.setState ({
+                warning: true
+            })
+        }  
+    }
+
+    validate = () => {
+        let valid = true;
+        if(this.state.name.length <= 2 || this.state.email.length <= 6 || this.state.comment <= 5 ){
+            valid = false;
+        }
+        console.log("invalid form")
+        return valid;
     }
 
 
@@ -97,6 +119,9 @@ class Contact extends Component {
                 <Alert isOpen={this.state.visible} toggle={this.toggle.bind(this)} id="formAlert">
                     Your comment has been submitted!
                 </Alert>
+                <Alert isOpen={this.state.warning} toggle={this.toggleWarning.bind(this)} id="formDeclined" color="danger">
+                    Please fill in all fields.
+                </Alert>
                 <Card className="colorOnly">
                     <CardBody>
                         <CardTitle id="mainHeader">Forum</CardTitle>
@@ -109,18 +134,18 @@ class Contact extends Component {
                                 <CardTitle>Submit a Comment</CardTitle>
                                 <FormGroup>
                                     <Label for="exampleName">Name</Label>
-                                    <Input type="name" name="name" id="exampleName" placeholder="Jane Doe"
+                                    <Input required type="name" name="name" id="exampleName" placeholder="Jane Doe"
                                         value={this.state.name}
                                         onChange={this.handleNameChange.bind(this)} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleEmail">Email</Label>
-                                    <Input type="email" name="email" id="exampleEmail" placeholder="email@email.com" value={this.state.email}
+                                    <Input required type="email" name="email" id="exampleEmail" placeholder="email@email.com" value={this.state.email}
                                         onChange={this.handleEmailChange.bind(this)} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="exampleText">Text Area</Label>
-                                    <Input type="textarea" name="comment" id="exampleText" value={this.state.comment} onChange={this.handleCommentChange.bind(this)} />
+                                    <Input required type="textarea" name="comment" id="exampleText"value={this.state.comment} onChange={this.handleCommentChange.bind(this)} />
                                 </FormGroup>
                                 <FormGroup check id="mailingListOptIn">
                                     <Label check>
@@ -149,7 +174,7 @@ class Contact extends Component {
                                                 <br/>
                                                 {comments.date}
                                                 </strong>
-                                            <Button onClick={() => this.deleteComment(comments._id)} />
+                                            {/* <Button onClick={() => this.onReply()}>Reply</Button> */}
                                         </ListGroupItem>
                                     ))}
                                 </ListGroup>
