@@ -11,17 +11,16 @@ import Footer from "./components/Footer";
 const App = () => (
   <Router>
     <div>
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/MakingTheGame" component={MakingTheGame} />
-        <Route exact path="/MediaGallery" component={MediaGallery} />
-        <Route exact path="/Contact" component={Contact} />
-        <Route component={NoMatch} />
-      </Switch>
-      <Footer />
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/MakingTheGame" component={MakingTheGame} />
+          <Route exact path="/MediaGallery" component={MediaGallery} />
+          <Route exact path="/Contact" component={Contact} />
+          <Route component={NoMatch} />
+        </Switch>
+        <Footer />
     </div>
-
   </Router>
 );
 
